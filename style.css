@@ -451,12 +451,31 @@ body {
     font-size: 0.85em;
 }
 
-/* ===== PRINT STYLES ===== */
+/* ===== OPTIMIZED PRINT STYLES ===== */
 @media print {
-    body {
-        background: white;
-        padding: 0;
+    @page {
+        size: A4 portrait;
+        margin: 8mm 10mm;
+    }
+
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+    }
+
+    html, body {
+        width: 210mm;
+        height: 297mm;
         margin: 0;
+        padding: 0;
+        background: white;
+        overflow: hidden;
+    }
+
+    .app-container {
+        width: 100%;
+        max-width: 100%;
     }
 
     .no-print {
@@ -465,105 +484,195 @@ body {
 
     .payslip-section {
         box-shadow: none;
-        padding: 0;
+        padding: 0 !important;
+        margin: 0 !important;
+        background: white;
+        border-radius: 0;
     }
 
     .payslip-template {
-        border: 2px solid var(--primary-color);
-        padding: 15px;
-        max-width: 100%;
-        page-break-inside: avoid;
+        border: 1.5px solid var(--primary-color) !important;
+        padding: 10mm !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        page-break-inside: avoid !important;
+        page-break-after: avoid !important;
+        page-break-before: avoid !important;
+        height: auto !important;
+        overflow: visible !important;
     }
 
+    /* Compact Header */
     .payslip-header {
-        padding-bottom: 8px;
-        margin-bottom: 8px;
+        padding-bottom: 4mm !important;
+        margin-bottom: 3mm !important;
+        border-bottom: 2px solid var(--primary-color) !important;
     }
 
     .payslip-logo {
-        width: 70px;
-        margin-bottom: 5px;
+        width: 20mm !important;
+        height: auto !important;
+        margin-bottom: 2mm !important;
     }
 
     .payslip-header h1 {
-        font-size: 1.3em;
-        margin-bottom: 5px;
+        font-size: 14pt !important;
+        margin-bottom: 2mm !important;
+        line-height: 1.2 !important;
     }
 
     .payslip-header p {
-        font-size: 0.7em;
+        font-size: 8pt !important;
+        line-height: 1.3 !important;
+        margin: 1mm 0 !important;
     }
 
+    /* Compact Title */
     .payslip-title {
-        margin: 8px 0;
-        padding: 8px;
+        margin: 3mm 0 !important;
+        padding: 2mm !important;
+        background: var(--primary-light) !important;
     }
 
+    .payslip-title h2 {
+        font-size: 11pt !important;
+        margin: 0 !important;
+    }
+
+    /* Compact Info Table */
     .info-table {
-        margin: 8px 0;
+        margin: 3mm 0 !important;
+        width: 100% !important;
     }
 
     .info-table td {
-        padding: 5px;
-        font-size: 0.7em;
+        padding: 2mm !important;
+        font-size: 8pt !important;
+        line-height: 1.3 !important;
     }
 
+    .info-label {
+        background: var(--primary-light) !important;
+    }
+
+    /* Compact Salary Tables */
     .salary-tables-container {
-        gap: 10px;
-        margin: 8px 0;
+        gap: 3mm !important;
+        margin: 3mm 0 !important;
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        page-break-inside: avoid !important;
+    }
+
+    .salary-table {
+        width: 100% !important;
+        page-break-inside: avoid !important;
     }
 
     .salary-table th,
     .salary-table td {
-        padding: 5px;
-        font-size: 0.7em;
+        padding: 1.5mm !important;
+        font-size: 8pt !important;
+        line-height: 1.2 !important;
     }
 
+    .salary-table thead th {
+        background: var(--primary-color) !important;
+        color: white !important;
+        -webkit-print-color-adjust: exact !important;
+    }
+
+    .salary-table tfoot th {
+        padding: 2mm 1.5mm !important;
+        font-size: 8.5pt !important;
+        background: var(--primary-color) !important;
+        color: white !important;
+        -webkit-print-color-adjust: exact !important;
+    }
+
+    .salary-table tbody tr:nth-child(odd) {
+        background: #f9f9f9 !important;
+        -webkit-print-color-adjust: exact !important;
+    }
+
+    /* Compact Summary Table */
     .summary-table {
-        margin: 8px 0;
+        margin: 3mm 0 !important;
+        page-break-inside: avoid !important;
     }
 
     .summary-table th,
     .summary-table td {
-        padding: 8px;
-        font-size: 0.75em;
+        padding: 2.5mm !important;
+        font-size: 9pt !important;
     }
 
+    .summary-table thead th {
+        background: var(--primary-color) !important;
+        color: white !important;
+        -webkit-print-color-adjust: exact !important;
+    }
+
+    .summary-table tbody td {
+        font-size: 10pt !important;
+    }
+
+    /* Compact Net Pay Box */
     .net-pay-box {
-        margin: 10px 0;
-        padding: 10px;
+        margin: 3mm 0 !important;
+        padding: 3mm !important;
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%) !important;
+        -webkit-print-color-adjust: exact !important;
+        page-break-inside: avoid !important;
     }
 
     .net-pay-label {
-        font-size: 0.8em;
+        font-size: 9pt !important;
+        margin-bottom: 1mm !important;
     }
 
     .net-pay-amount {
-        font-size: 1.5em;
-        margin-bottom: 5px;
+        font-size: 16pt !important;
+        margin-bottom: 2mm !important;
     }
 
     .net-pay-words {
-        font-size: 0.7em;
-        padding: 5px;
+        font-size: 8pt !important;
+        padding: 2mm !important;
+        background: rgba(255, 255, 255, 0.2) !important;
+        -webkit-print-color-adjust: exact !important;
     }
 
+    /* Compact Footer */
     .payslip-footer {
-        margin-top: 10px;
-        padding-top: 8px;
+        margin-top: 3mm !important;
+        padding-top: 2mm !important;
+        page-break-inside: avoid !important;
     }
 
     .payslip-footer p {
-        font-size: 0.7em;
+        margin: 1mm 0 !important;
+        font-size: 7.5pt !important;
     }
 
-    @page {
-        margin: 0.5cm;
-        size: A4 portrait;
+    /* Remove any potential page breaks */
+    .payslip-header,
+    .payslip-title,
+    .info-table,
+    .salary-tables-container,
+    .summary-table,
+    .net-pay-box,
+    .payslip-footer {
+        page-break-before: avoid !important;
+        page-break-after: avoid !important;
+        page-break-inside: avoid !important;
     }
 
-    * {
-        page-break-inside: avoid;
+    /* Hide scroll and ensure single page */
+    body {
+        overflow: hidden !important;
     }
 }
 
