@@ -1,0 +1,718 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #469e25;
+    --primary-dark: #3a8520;
+    --primary-light: #f0ffec;
+    --text-dark: #1a1a1a;
+    --text-medium: #555;
+    --text-light: #777;
+    --border-color: #e0e0e0;
+    --shadow-sm: 0 2px 8px rgba(70, 158, 37, 0.08);
+    --shadow-md: 0 4px 16px rgba(70, 158, 37, 0.12);
+    --shadow-lg: 0 8px 24px rgba(70, 158, 37, 0.15);
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, #f0ffec 0%, #e8f5e9 100%);
+    min-height: 100vh;
+    padding: 20px;
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+
+.app-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ===== FORM SECTION ===== */
+.input-section {
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    padding: 40px;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid var(--primary-light);
+}
+
+.logo {
+    width: 140px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.input-section h1 {
+    color: var(--primary-color);
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    color: var(--text-medium);
+    font-size: 1.1em;
+    font-weight: 400;
+}
+
+/* Multi-Column Layout */
+.form-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.form-column {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-card {
+    background: #fff;
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 25px;
+    transition: all 0.3s ease;
+}
+
+.form-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.form-card h2 {
+    color: var(--primary-color);
+    font-size: 1.3em;
+    font-weight: 600;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-card .icon {
+    font-size: 1.3em;
+}
+
+/* Special card styling */
+.earnings-card {
+    border-left: 4px solid #4caf50;
+}
+
+.deductions-card {
+    border-left: 4px solid #ff9800;
+}
+
+/* Form Grids */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.form-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-field.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-field label {
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 0.9em;
+    letter-spacing: 0.2px;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+    padding: 12px 14px;
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-size: 0.95em;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    background: #fafafa;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(70, 158, 37, 0.1);
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+    color: #aaa;
+}
+
+.form-field textarea {
+    resize: vertical;
+    min-height: 60px;
+    font-family: inherit;
+}
+
+/* Buttons */
+.button-group {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    padding-top: 20px;
+    border-top: 2px solid var(--primary-light);
+}
+
+.btn {
+    padding: 14px 32px;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: var(--shadow-sm);
+}
+
+.btn span {
+    font-size: 1.2em;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(70, 158, 37, 0.3);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(108, 117, 125, 0.3);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* ===== PAYSLIP SECTION ===== */
+.payslip-section {
+    background: white;
+    padding: 40px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    animation: fadeIn 0.5s ease;
+}
+
+.print-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.payslip-template {
+    background: white;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px;
+    border: 3px solid var(--primary-color);
+    border-radius: var(--radius-sm);
+}
+
+/* Header */
+.payslip-header {
+    text-align: center;
+    padding-bottom: 15px;
+    border-bottom: 3px solid var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.payslip-logo {
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+.payslip-header h1 {
+    color: var(--primary-color);
+    font-size: 1.6em;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.payslip-header p {
+    color: var(--text-medium);
+    line-height: 1.4;
+    font-size: 0.85em;
+}
+
+.payslip-title {
+    text-align: center;
+    margin: 15px 0;
+    padding: 12px;
+    background: var(--primary-light);
+    border-radius: var(--radius-sm);
+}
+
+.payslip-title h2 {
+    color: var(--primary-color);
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+/* Info Table */
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+}
+
+.info-table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    font-size: 0.85em;
+}
+
+.info-label {
+    font-weight: 600;
+    color: var(--primary-color);
+    width: 25%;
+    background: var(--primary-light);
+}
+
+.info-value {
+    color: var(--text-dark);
+    width: 25%;
+}
+
+/* Salary Tables */
+.salary-tables-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.salary-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.salary-table th,
+.salary-table td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+    font-size: 0.85em;
+}
+
+.salary-table thead th {
+    background: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    text-align: center;
+}
+
+.salary-table tbody tr:nth-child(odd) {
+    background: #f9f9f9;
+}
+
+.salary-table tbody td:nth-child(2) {
+    text-align: right;
+    font-weight: 500;
+}
+
+.salary-table tfoot th {
+    background: var(--primary-color);
+    color: white;
+    padding: 10px 8px;
+    font-weight: 600;
+}
+
+.salary-table tfoot th:nth-child(2) {
+    text-align: right;
+}
+
+/* Summary Table */
+.summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+}
+
+.summary-table th,
+.summary-table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.summary-table thead th {
+    background: var(--primary-color);
+    color: white;
+    font-weight: 600;
+}
+
+.summary-table tbody td {
+    font-size: 1em;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+/* Net Pay Box */
+.net-pay-box {
+    margin: 15px 0;
+    padding: 15px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: white;
+    border-radius: var(--radius-sm);
+    text-align: center;
+}
+
+.net-pay-label {
+    font-size: 0.95em;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.net-pay-amount {
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.net-pay-words {
+    font-size: 0.9em;
+    font-style: italic;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px;
+    border-radius: 5px;
+}
+
+/* Footer */
+.payslip-footer {
+    margin-top: 15px;
+    padding-top: 12px;
+    border-top: 2px solid #ddd;
+    text-align: center;
+    color: var(--text-medium);
+}
+
+.payslip-footer p {
+    margin: 5px 0;
+    font-size: 0.85em;
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+    body {
+        background: white;
+        padding: 0;
+        margin: 0;
+    }
+
+    .no-print {
+        display: none !important;
+    }
+
+    .payslip-section {
+        box-shadow: none;
+        padding: 0;
+    }
+
+    .payslip-template {
+        border: 2px solid var(--primary-color);
+        padding: 15px;
+        max-width: 100%;
+        page-break-inside: avoid;
+    }
+
+    .payslip-header {
+        padding-bottom: 8px;
+        margin-bottom: 8px;
+    }
+
+    .payslip-logo {
+        width: 70px;
+        margin-bottom: 5px;
+    }
+
+    .payslip-header h1 {
+        font-size: 1.3em;
+        margin-bottom: 5px;
+    }
+
+    .payslip-header p {
+        font-size: 0.7em;
+    }
+
+    .payslip-title {
+        margin: 8px 0;
+        padding: 8px;
+    }
+
+    .info-table {
+        margin: 8px 0;
+    }
+
+    .info-table td {
+        padding: 5px;
+        font-size: 0.7em;
+    }
+
+    .salary-tables-container {
+        gap: 10px;
+        margin: 8px 0;
+    }
+
+    .salary-table th,
+    .salary-table td {
+        padding: 5px;
+        font-size: 0.7em;
+    }
+
+    .summary-table {
+        margin: 8px 0;
+    }
+
+    .summary-table th,
+    .summary-table td {
+        padding: 8px;
+        font-size: 0.75em;
+    }
+
+    .net-pay-box {
+        margin: 10px 0;
+        padding: 10px;
+    }
+
+    .net-pay-label {
+        font-size: 0.8em;
+    }
+
+    .net-pay-amount {
+        font-size: 1.5em;
+        margin-bottom: 5px;
+    }
+
+    .net-pay-words {
+        font-size: 0.7em;
+        padding: 5px;
+    }
+
+    .payslip-footer {
+        margin-top: 10px;
+        padding-top: 8px;
+    }
+
+    .payslip-footer p {
+        font-size: 0.7em;
+    }
+
+    @page {
+        margin: 0.5cm;
+        size: A4 portrait;
+    }
+
+    * {
+        page-break-inside: avoid;
+    }
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablet (768px - 1024px) */
+@media (max-width: 1024px) {
+    .input-section {
+        padding: 30px;
+    }
+
+    .form-container {
+        gap: 25px;
+    }
+
+    .logo {
+        width: 120px;
+    }
+
+    .input-section h1 {
+        font-size: 2em;
+    }
+}
+
+/* Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .input-section {
+        padding: 20px;
+    }
+
+    .form-header {
+        margin-bottom: 25px;
+        padding-bottom: 20px;
+    }
+
+    .logo {
+        width: 100px;
+    }
+
+    .input-section h1 {
+        font-size: 1.8em;
+    }
+
+    .subtitle {
+        font-size: 1em;
+    }
+
+    /* Stack columns on mobile */
+    .form-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .form-card {
+        padding: 20px;
+    }
+
+    .form-card h2 {
+        font-size: 1.1em;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .form-grid-2 {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .button-group {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 24px;
+    }
+
+    /* Payslip mobile adjustments */
+    .payslip-section {
+        padding: 20px;
+    }
+
+    .payslip-template {
+        padding: 20px;
+    }
+
+    .salary-tables-container {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .print-buttons {
+        flex-direction: column;
+    }
+
+    .info-table td {
+        font-size: 0.75em;
+        padding: 6px;
+    }
+}
+
+/* Small Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+    .input-section {
+        padding: 15px;
+    }
+
+    .logo {
+        width: 80px;
+    }
+
+    .input-section h1 {
+        font-size: 1.5em;
+    }
+
+    .subtitle {
+        font-size: 0.9em;
+    }
+
+    .form-card {
+        padding: 15px;
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+        padding: 10px 12px;
+        font-size: 0.9em;
+    }
+
+    .btn {
+        padding: 12px 20px;
+        font-size: 0.9em;
+    }
+
+    .payslip-logo {
+        width: 70px;
+    }
+
+    .net-pay-amount {
+        font-size: 1.6em;
+    }
+}

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payslip Generator - Professional</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Input Form Section -->
+        <div class="input-section" id="inputSection">
+            <div class="form-header">
+                <img src="https://cdn.prod.website-files.com/669a55be953bf5aa9e39fee0/669b68d46de75eb9da68f41d_Group%20new.png" alt="Logo" class="logo">
+                <h1>Payslip Generator</h1>
+                <p class="subtitle">Create professional payslips instantly</p>
+            </div>
+            
+            <form id="payslipForm">
+                <div class="form-container">
+                    <!-- Left Column -->
+                    <div class="form-column">
+                        <!-- Company Details -->
+                        <div class="form-card">
+                            <h2><span class="icon">🏢</span> Company Details</h2>
+                            <div class="form-field">
+                                <label>Company Name *</label>
+                                <input type="text" id="companyName" required placeholder="Enter company name">
+                            </div>
+                            <div class="form-field">
+                                <label>Company Address *</label>
+                                <textarea id="companyAddress" rows="2" required placeholder="Enter full address"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Employee Details -->
+                        <div class="form-card">
+                            <h2><span class="icon">👤</span> Employee Details</h2>
+                            <div class="form-grid">
+                                <div class="form-field">
+                                    <label>Employee ID *</label>
+                                    <input type="text" id="employeeId" required placeholder="e.g., 026">
+                                </div>
+                                <div class="form-field">
+                                    <label>Employee Name *</label>
+                                    <input type="text" id="employeeName" required placeholder="Full name">
+                                </div>
+                                <div class="form-field">
+                                    <label>Department *</label>
+                                    <input type="text" id="department" required placeholder="e.g., IT Department">
+                                </div>
+                                <div class="form-field">
+                                    <label>Designation *</label>
+                                    <input type="text" id="designation" required placeholder="e.g., Software Engineer">
+                                </div>
+                                <div class="form-field">
+                                    <label>Date of Joining *</label>
+                                    <input type="date" id="dateOfJoining" required>
+                                </div>
+                                <div class="form-field">
+                                    <label>Email *</label>
+                                    <input type="email" id="email" required placeholder="employee@company.com">
+                                </div>
+                                <div class="form-field">
+                                    <label>Working Days *</label>
+                                    <input type="number" id="workingDays" step="0.5" required placeholder="e.g., 31">
+                                </div>
+                                <div class="form-field">
+                                    <label>UAN Number</label>
+                                    <input type="text" id="uanNumber" placeholder="Optional">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Payslip Period -->
+                        <div class="form-card">
+                            <h2><span class="icon">📅</span> Payslip Period</h2>
+                            <div class="form-grid-2">
+                                <div class="form-field">
+                                    <label>Month *</label>
+                                    <select id="month" required>
+                                        <option value="">Select Month</option>
+                                        <option value="January">January</option>
+                                        <option value="February">February</option>
+                                        <option value="March">March</option>
+                                        <option value="April">April</option>
+                                        <option value="May">May</option>
+                                        <option value="June">June</option>
+                                        <option value="July">July</option>
+                                        <option value="August">August</option>
+                                        <option value="September">September</option>
+                                        <option value="October">October</option>
+                                        <option value="November">November</option>
+                                        <option value="December">December</option>
+                                    </select>
+                                </div>
+                                <div class="form-field">
+                                    <label>Year *</label>
+                                    <input type="number" id="year" min="2000" max="2100" required placeholder="2026">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="form-column">
+                        <!-- Earnings -->
+                        <div class="form-card earnings-card">
+                            <h2><span class="icon">💰</span> Earnings</h2>
+                            <div class="form-grid-2">
+                                <div class="form-field">
+                                    <label>Basic Pay *</label>
+                                    <input type="number" id="basicPay" step="0.01" required placeholder="0.00">
+                                </div>
+                                <div class="form-field">
+                                    <label>HRA</label>
+                                    <input type="number" id="hra" step="0.01" value="0" placeholder="0.00">
+                                </div>
+                                <div class="form-field">
+                                    <label>Conveyance</label>
+                                    <input type="number" id="conveyance" step="0.01" value="0" placeholder="0.00">
+                                </div>
+                                <div class="form-field">
+                                    <label>Medical</label>
+                                    <input type="number" id="medical" step="0.01" value="0" placeholder="0.00">
+                                </div>
+                                <div class="form-field full-width">
+                                    <label>Other Allowances</label>
+                                    <input type="number" id="otherAllowances" step="0.01" value="0" placeholder="0.00">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Deductions -->
+                        <div class="form-card deductions-card">
+                            <h2><span class="icon">📉</span> Deductions</h2>
+                            <div class="form-grid-2">
+                                <div class="form-field">
+                                    <label>EPF</label>
+                                    <input type="number" id="epf" step="0.01" value="0" placeholder="0.00">
+                                </div>
+                                <div class="form-field">
+                                    <label>Professional Tax</label>
+                                    <input type="number" id="professionalTax" step="0.01" value="0" placeholder="0.00">
+                                </div>
+                                <div class="form-field">
+                                    <label>Health Insurance & ESI</label>
+                                    <input type="number" id="healthInsurance" step="0.01" value="0" placeholder="0.00">
+                                </div>
+                                <div class="form-field">
+                                    <label>Loan EMI</label>
+                                    <input type="number" id="loanEmi" step="0.01" value="0" placeholder="0.00">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Buttons -->
+                <div class="button-group">
+                    <button type="submit" class="btn btn-primary">
+                        <span>✓</span> Generate Payslip
+                    </button>
+                    <button type="reset" class="btn btn-secondary">
+                        <span>↻</span> Reset Form
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Payslip Template Section -->
+        <div class="payslip-section" id="payslipSection" style="display: none;">
+            <div class="print-buttons no-print">
+                <button onclick="printPayslip()" class="btn btn-primary">
+                    <span>🖨</span> Print Payslip
+                </button>
+                <button onclick="goBack()" class="btn btn-secondary">
+                    <span>←</span> Back to Form
+                </button>
+            </div>
+
+            <div class="payslip-template" id="payslipTemplate">
+                <!-- Header -->
+                <div class="payslip-header">
+                    <img src="https://cdn.prod.website-files.com/669a55be953bf5aa9e39fee0/669b68d46de75eb9da68f41d_Group%20new.png" alt="Company Logo" class="payslip-logo">
+                    <h1 id="printCompanyName"></h1>
+                    <p id="printCompanyAddress"></p>
+                </div>
+
+                <div class="payslip-title">
+                    <h2>Payslip for <span id="printMonth"></span> - <span id="printYear"></span></h2>
+                </div>
+
+                <!-- Employee Info Table -->
+                <table class="info-table">
+                    <tr>
+                        <td class="info-label">Employee Id</td>
+                        <td class="info-value" id="printEmployeeId"></td>
+                        <td class="info-label">Employee Name</td>
+                        <td class="info-value" id="printEmployeeName"></td>
+                    </tr>
+                    <tr>
+                        <td class="info-label">Department</td>
+                        <td class="info-value" id="printDepartment"></td>
+                        <td class="info-label">Designation</td>
+                        <td class="info-value" id="printDesignation"></td>
+                    </tr>
+                    <tr>
+                        <td class="info-label">Date Of Joining</td>
+                        <td class="info-value" id="printDateOfJoining"></td>
+                        <td class="info-label">Email</td>
+                        <td class="info-value" id="printEmail"></td>
+                    </tr>
+                    <tr>
+                        <td class="info-label">No Of Working Days</td>
+                        <td class="info-value" id="printWorkingDays"></td>
+                        <td class="info-label">Uan Number</td>
+                        <td class="info-value" id="printUanNumber"></td>
+                    </tr>
+                </table>
+
+                <!-- Salary Details Tables -->
+                <div class="salary-tables-container">
+                    <table class="salary-table earnings-table">
+                        <thead>
+                            <tr>
+                                <th>Earnings</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Basic Pay</td>
+                                <td id="printBasicPay"></td>
+                            </tr>
+                            <tr>
+                                <td>Hra</td>
+                                <td id="printHra"></td>
+                            </tr>
+                            <tr>
+                                <td>Conveyance</td>
+                                <td id="printConveyance"></td>
+                            </tr>
+                            <tr>
+                                <td>Medical</td>
+                                <td id="printMedical"></td>
+                            </tr>
+                            <tr>
+                                <td>Other Allowances</td>
+                                <td id="printOtherAllowances"></td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Total Earnings</th>
+                                <th id="printTotalEarnings"></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+
+                    <table class="salary-table deductions-table">
+                        <thead>
+                            <tr>
+                                <th>Deductions</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Epf</td>
+                                <td id="printEpf"></td>
+                            </tr>
+                            <tr>
+                                <td>Professional Tax</td>
+                                <td id="printProfessionalTax"></td>
+                            </tr>
+                            <tr>
+                                <td>Health Insurance & Esi</td>
+                                <td id="printHealthInsurance"></td>
+                            </tr>
+                            <tr>
+                                <td>Loan Emi</td>
+                                <td id="printLoanEmi"></td>
+                            </tr>
+                            <tr>
+                                <td>—</td>
+                                <td>—</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Total Deductions</th>
+                                <th id="printTotalDeductions"></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <!-- Summary Table -->
+                <table class="summary-table">
+                    <thead>
+                        <tr>
+                            <th>Total Earnings</th>
+                            <th>Total Deductions</th>
+                            <th>Net Pay</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="printTotalEarnings2"></td>
+                            <td id="printTotalDeductions2"></td>
+                            <td id="printNetPay"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Net Pay Box -->
+                <div class="net-pay-box">
+                    <div class="net-pay-label">Net Pay</div>
+                    <div class="net-pay-amount" id="printNetPayLarge"></div>
+                    <div class="net-pay-words">
+                        <strong>In Words:</strong> <span id="printNetPayWords"></span>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <div class="payslip-footer">
+                    <p><strong>NO SIGNATURE REQUIRED – SYSTEM GENERATED</strong></p>
+                    <p>For queries, contact HR Department</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
